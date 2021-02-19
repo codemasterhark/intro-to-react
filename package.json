@@ -1,5 +1,5 @@
 {
-  "name": "intro-to-react",
+  "name": "react-introduction",
   "version": "1.0.0",
   "description": "Intro to react and create your own youtube",
   "main": "src/App.js",
@@ -11,8 +11,12 @@
   "author": "Code Master Hark",
   "license": "ISC",
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.16.0",
     "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
     "parcel-bundler": "^1.12.4",
     "prettier": "^2.2.1"
   },
