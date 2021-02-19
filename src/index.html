@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeTube</title>
+</head>
+<body>
+    <div id="root">Not rendered to root</div>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+  <script>
+   const Video = props => {
+  return React.createElement("div", {}, [
+    React.createElement("h2", {}, props.title),
+    React.createElement("h3", {}, props.dateAdded),
+    React.createElement("h3", {}, props.channel)
+  ]);
+};
+
+const App = () => {
+  return React.createElement("div", {}, [
+    React.createElement("h2", {}, "WeTube"),
+    React.createElement(Video,{
+      title: "The best Video",
+      dateAdded: "2 days ago",
+      channel: "News Channel"
+    }),
+    React.createElement(Video,{
+      title: "The cool Video",
+      dateAdded: "3 days ago",
+      channel: "Local Channel"
+    }),
+    React.createElement(Video,{
+      title: "The learning Video",
+      dateAdded: "6 days ago",
+      channel: "Learning Channel"
+    })
+  ]);
+};
+
+ReactDOM.render(React.createElement(App), document.getElementById("root"));
+  </script>
+
+</body>
+</html>
