@@ -13,6 +13,7 @@ const Results = ({ videos }) => {
             thumbnail={video.snippet.thumbnails.medium}
             channel={video.snippet.channelTitle}
             description={video.snippet.description}
+            id={video.id.videoId}
           />
         );
       })}

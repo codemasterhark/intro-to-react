@@ -1,15 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Video from "./Video";
 import SearchArea from "./SearchArea";
+import { Router, Link } from "@reach/router";
+import WatchArea from "./WatchArea";
 
 const App = () => {
   return (
     <div>
       <header>
-        <a href="#">WeTube</a>
+        <Link to="/">WeTube</Link>
       </header>
-      <SearchArea />
+
+      <Router>
+        <SearchArea path="/" />
+        <WatchArea path="/watch/:id" />
+      </Router>
     </div>
   );
 };
