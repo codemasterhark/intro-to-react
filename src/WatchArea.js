@@ -49,7 +49,7 @@ class WatchArea extends React.Component {
             ></iframe>
           </div>
           <h1>{title}</h1>
-          <div className="video-info">
+          <div className="video-stats">
             <div>{views} Views</div>
             <div>{like} Likes</div>
           </div>

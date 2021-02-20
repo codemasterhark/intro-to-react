@@ -109,3 +109,34 @@ header a {
 .video-info p {
   color: grey;
 }
+
+.watch-area {
+  background-color: #ececec;
+  width: 1100px;
+  margin: 0 auto;
+  padding: 15px;
+  border-radius: 9px;
+  margin-bottom: 1.5rem;
+}
+
+.player {
+  text-align: center;
+}
+
+.watch-area .video-stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.watch-area .channel-name {
+  text-align: center;
+  font-weight: 500;
+}
+
+.watch-area h1 {
+  text-align: center;
+  color: #ad343e;
+  font-size: 1.5rem;
+  margin: 5px 0;
+}
