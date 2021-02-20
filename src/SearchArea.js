@@ -2,12 +2,22 @@ import React, { useState } from "react";
 import Results from "./Results";
 import axios from "axios";
 import * as AppContant from "./AppConstant";
+import useDropdown from "./useDropdown";
 
 const SearchArea = () => {
   const [keyword, setKeyword] = useState("budgies");
   const [videos, setVideos] = useState([]);
-  const [order, setOrder] = useState("relevance");
-  const orderList = ["date", "relevance", "rating"];
+  const [checked, setChecked] = useState(false);
+  const [order, OrderDropdown] = useDropdown("Order By", "relevance", [
+    "date",
+    "relevance",
+    "rating",
+  ]);
+  const [safeSearch, SafesearchDropdown] = useDropdown("Safe Search", "none", [
+    "moderate",
+    "none",
+    "strict",
+  ]);
 
   async function requestSearch() {
     axios
@@ -41,23 +51,20 @@ const SearchArea = () => {
         </label>
         <label htmlFor="advance">
           Advanced Search
-          <input type="checkbox" id="advance" />
+          <input
+            type="checkbox"
+            id="advance"
+            checked={checked}
+            onChange={() => setChecked(!checked)}
+          />
         </label>
-        <label htmlFor="order">
-          Order
-          <select
-            id="order"
-            value={order}
-            onChange={(e) => setOrder(e.target.value)}
-            onBlur={(e) => setOrder(e.target.value)}
-          >
-            {orderList.map((orderName) => (
-              <option key={orderName} value={orderName}>
-                {orderName}
-              </option>
-            ))}
-          </select>
-        </label>
+        {checked ? (
+          <div>
+            <OrderDropdown />
+            <SafesearchDropdown />
+          </div>
+        ) : null}
+
         <button>Submit</button>
       </form>
       <Results videos={videos} />
