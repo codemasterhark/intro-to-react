@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import * as AppContant from "./AppConstant";
+import FormatNumber from "./FormatNumber";
 
 class WatchArea extends React.Component {
   constructor() {
@@ -49,8 +50,12 @@ class WatchArea extends React.Component {
           </div>
           <h1>{title}</h1>
           <div className="video-stats">
-            <div>{views} Views</div>
-            <div>{like} Likes</div>
+            <div>
+              <FormatNumber number={views} /> Views
+            </div>
+            <div>
+              <FormatNumber number={like} /> Likes
+            </div>
           </div>
           <div className="channel-name">{channel} Channel</div>
 
