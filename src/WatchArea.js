@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import * as AppContant from "./AppConstant";
 
 class WatchArea extends React.Component {
   constructor() {
@@ -9,9 +10,7 @@ class WatchArea extends React.Component {
 
   componentDidMount() {
     axios
-      .get(
-        `https://www.googleapis.com/youtube/v3/videos?key=${process.env.API_KEY}&part=snippet,contentDetails,statistics,status,player&id=${this.props.id}`
-      )
+      .get(`${AppContant.VIDEO_URL}&id=${this.props.id}`)
       .then((res) => {
         const item = res.data.items[0];
         this.setState({
