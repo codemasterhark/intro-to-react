@@ -34,11 +34,11 @@ class WatchArea extends React.Component {
 
   goToYoutube = () =>
     window.open(`https://www.youtube.com/watch?v=${this.state.url}`);
-    // navigate(`https://www.youtube.com/watch?v=${this.state.url}`)
+  // navigate(`https://www.youtube.com/watch?v=${this.state.url}`)
 
   render() {
     if (this.state.loading) {
-      return <h1 className="loader">loading … </h1>;
+      return <h1 className="loader"></h1>;
     }
 
     const {

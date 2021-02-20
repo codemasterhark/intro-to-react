@@ -9,6 +9,7 @@ const SearchArea = () => {
   const [themeColor, setThemeColor] = useContext(ColorContext);
   const [keyword, setKeyword] = useState("budgies");
   const [videos, setVideos] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [checked, setChecked] = useState(true);
   const [order, OrderDropdown] = useDropdown("Order By", "relevance", [
     "date",
@@ -33,13 +34,15 @@ const SearchArea = () => {
     }
   }, [checked, order, safeSearch]);
 
-  async function requestSearch() {
+  function requestSearch() {
+    setLoading(true);
     axios
       .get(`${AppContant.SEARCH_URL}&q=${keyword}${advancedParams}`)
       .then((res) => {
         const { items } = res.data;
         console.log(items);
         setVideos(items || []);
+        setLoading(false);
       })
       .catch((err) => console.log(err));
 
@@ -94,7 +97,7 @@ const SearchArea = () => {
 
         <button style={{ backgroundColor: themeColor }}>Submit</button>
       </form>
-      <Results videos={videos} />
+      <Results videos={videos} loading={loading} />
     </div>
   );
 };

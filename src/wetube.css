@@ -83,15 +83,15 @@ header a {
 
 .search-result {
   background-color: #f3f3f3;
-  border-radius: 9px;
   margin: 1.5rem 0;
+  border-radius: 9px;
 }
 
 .video-container {
   width: 100%;
   display: flex;
-  overflow: hidden;
   padding: 25px 15px;
+  overflow: hidden;
   border-bottom: #d8dee6 2px solid;
   text-decoration: none;
 }
@@ -181,4 +181,38 @@ header a {
 #modal .buttons button {
   display: inline-block;
   margin: 0.5rem;
+}
+
+.loader {
+  text-align: center;
+}
+
+.loader {
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  border: 8px solid #e6c521;
+  border-radius: 50%;
+  border-top: 8px solid #ececec;
+  -webkit-animation: spin 0.5s linear infinite;
+  animation: spin 0.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
