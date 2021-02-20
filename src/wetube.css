@@ -72,3 +72,40 @@ header a {
   border-radius: 5px;
   cursor: pointer;
 }
+
+.search-result {
+  background-color: #f3f3f3;
+  border-radius: 9px;
+  margin: 1.5rem 0;
+}
+
+.video-container {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  padding: 25px 15px;
+  border-bottom: #d8dee6 2px solid;
+  text-decoration: none;
+}
+
+.video-image {
+  margin: 0 20px 0 10px;
+}
+
+.video-info {
+  width: 80%;
+  height: 100px;
+}
+
+.video-info h3 {
+  font-weight: 600;
+  margin: 0;
+}
+
+.video-info h4 {
+  font-weight: 500;
+}
+
+.video-info p {
+  color: grey;
+}
