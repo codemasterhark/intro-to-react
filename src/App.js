@@ -6,7 +6,9 @@ import SearchArea from "./SearchArea";
 const App = () => {
   return (
     <div>
-      <h1>WeTube</h1>
+      <header>
+        <a href="#">WeTube</a>
+      </header>
       <SearchArea />
       <Video
         title="The Best Video"
