@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Results from "./Results";
 import axios from "axios";
 import * as AppContant from "./AppConstant";
@@ -12,6 +12,8 @@ const SearchArea = () => {
     "date",
     "relevance",
     "rating",
+    "title",
+    "viewCount",
   ]);
   const [safeSearch, SafesearchDropdown] = useDropdown("Safe Search", "none", [
     "moderate",
@@ -19,9 +21,19 @@ const SearchArea = () => {
     "strict",
   ]);
 
+  const [advancedParams, setAdvancedParams] = useState(``);
+
+  useEffect(() => {
+    if (checked) {
+      setAdvancedParams(`&order=${order}&safeSearch=${safeSearch}`);
+    } else {
+      setAdvancedParams(``);
+    }
+  }, [checked, order, safeSearch]);
+
   async function requestSearch() {
     axios
-      .get(`${AppContant.SEARCH_URL}&q=${keyword}`)
+      .get(`${AppContant.SEARCH_URL}&q=${keyword}${advancedParams}`)
       .then((res) => {
         const { items } = res.data;
         console.log(items);
