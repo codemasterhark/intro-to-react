@@ -54,7 +54,8 @@ header a {
   display: block;
 }
 
-.search-area input {
+.search-area input,
+.search-area select {
   margin-bottom: 1.9rem;
   font-size: 1.2rem;
   height: 1.9rem;
@@ -71,6 +72,11 @@ header a {
   border: #111 1px solid;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.search-area input[type="checkbox"] {
+  width: unset;
+  height: unset;
 }
 
 .search-result {

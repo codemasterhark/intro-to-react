@@ -6,6 +6,8 @@ import * as AppContant from "./AppConstant";
 const SearchArea = () => {
   const [keyword, setKeyword] = useState("budgies");
   const [videos, setVideos] = useState([]);
+  const [order, setOrder] = useState("relevance");
+  const orderList = ["date", "relevance", "rating"];
 
   async function requestSearch() {
     axios
@@ -36,6 +38,25 @@ const SearchArea = () => {
             placeholder="Search Keyword"
             onChange={(e) => setKeyword(e.target.value)}
           />
+        </label>
+        <label htmlFor="advance">
+          Advanced Search
+          <input type="checkbox" id="advance" />
+        </label>
+        <label htmlFor="order">
+          Order
+          <select
+            id="order"
+            value={order}
+            onChange={(e) => setOrder(e.target.value)}
+            onBlur={(e) => setOrder(e.target.value)}
+          >
+            {orderList.map((orderName) => (
+              <option key={orderName} value={orderName}>
+                {orderName}
+              </option>
+            ))}
+          </select>
         </label>
         <button>Submit</button>
       </form>
