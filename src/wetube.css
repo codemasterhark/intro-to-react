@@ -62,7 +62,8 @@ header a {
   width: 20rem;
 }
 
-.search-area button {
+.search-area button,
+.watch-area button {
   margin: 0 auto;
   display: block;
   padding: 5px 25px;

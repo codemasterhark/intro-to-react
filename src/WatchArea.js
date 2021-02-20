@@ -3,6 +3,7 @@ import axios from "axios";
 import * as AppContant from "./AppConstant";
 import FormatNumber from "./FormatNumber";
 import ErrorBoundary from "./ErrorBoundary";
+import ColorContext from "./ColorContext";
 
 class WatchArea extends React.Component {
   constructor() {
@@ -59,7 +60,13 @@ class WatchArea extends React.Component {
             </div>
           </div>
           <div className="channel-name">{channel} Channel</div>
-
+          <ColorContext.Consumer>
+            {([themeColor]) => (
+              <button style={{ backgroundColor: themeColor }}>
+                Watch on Youtube
+              </button>
+            )}
+          </ColorContext.Consumer>
           <p>{description}</p>
         </div>
       </div>
