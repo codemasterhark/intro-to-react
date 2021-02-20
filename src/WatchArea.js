@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import * as AppContant from "./AppConstant";
 import FormatNumber from "./FormatNumber";
+import ErrorBoundary from "./ErrorBoundary";
 
 class WatchArea extends React.Component {
   constructor() {
@@ -66,4 +67,10 @@ class WatchArea extends React.Component {
   }
 }
 
-export default WatchArea;
+export default function WatchAreaWithErrorBoundary(props) {
+  return (
+    <ErrorBoundary>
+      <WatchArea {...props} />
+    </ErrorBoundary>
+  );
+}
