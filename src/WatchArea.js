@@ -32,10 +32,9 @@ class WatchArea extends React.Component {
 
   toggleModal = () => this.setState({ showModal: !this.state.showModal });
 
-  goToYoutube = () =>(
-      window.open(`https://www.youtube.com/watch?v=${this.state.url}`)
+  goToYoutube = () =>
+    window.open(`https://www.youtube.com/watch?v=${this.state.url}`);
     // navigate(`https://www.youtube.com/watch?v=${this.state.url}`)
-  )
 
   render() {
     if (this.state.loading) {
@@ -93,7 +92,9 @@ class WatchArea extends React.Component {
               <div>
                 <h1>Would you like to watch this video on YouTube ?</h1>
                 <div className="buttons">
-                  <button onClick={this.goToYoutube}>Yes</button>
+                  <button className="btn-green" onClick={this.goToYoutube}>
+                    Yes
+                  </button>
                   <button onClick={this.toggleModal}>No</button>
                 </div>
               </div>
